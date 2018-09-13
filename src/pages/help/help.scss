@@ -1,3 +1,18 @@
 page-help {
+  ion-slide{
+    display: block !important;
+    overflow-y: scroll !important;
+    align-items: unset !important;
+  }
 
+  .btn-next {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 40px;
+
+    ion-row {
+      width: 100%;
+    }
+  }
 }

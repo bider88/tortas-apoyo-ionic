@@ -9,4 +9,81 @@
 
 <ion-content padding>
 
+  <ion-slides pager>
+
+    <ion-slide>
+
+      <ion-list radio-group [(ngModel)]="option">
+        <ion-list-header>
+          ¿Cómo quieres que quede registrado tu apoyo?
+        </ion-list-header>
+
+        <ion-item>
+          <ion-label>Anónimo</ion-label>
+          <ion-radio checked="true" value="0"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Alias</ion-label>
+          <ion-radio value="1"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Facebook</ion-label>
+          <ion-radio value="2"></ion-radio>
+        </ion-item>
+      </ion-list>
+
+      <ion-list *ngIf="option != 0">
+        <div *ngIf="option == 1">
+          <ion-item>
+            <ion-label>Alias</ion-label>
+            <ion-input [(ngModel)]="aliasTemp" type="text"></ion-input>
+          </ion-item>
+          <small class="s-note" margin-left>* Si ya cuentas con un alias, ingresalo.</small>
+        </div>
+        <button class="btn-facebook" ion-button color="facebook" block item-end icon-start *ngIf="option == 2">
+          <ion-icon name="logo-facebook"></ion-icon>&nbsp;
+          Facebook
+        </button>
+      </ion-list>
+
+      <div class="btn-next">
+        <button ion-button block (click)="validOption()" icon-right>
+          Continuar
+          <ion-icon name="arrow-forward"></ion-icon>
+        </button>
+      </div>
+
+    </ion-slide>
+
+    <ion-slide>
+      <h2>Slide 2</h2>
+      <div class="btn-next">
+        <ion-row>
+          <ion-row>
+            <ion-col>
+              <button color="secondary" ion-button block (click)="back()" icon-left>
+                <ion-icon name="arrow-back"></ion-icon>
+                Anterior
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button block (click)="validOption()" icon-right>
+                Continuar
+                <ion-icon name="arrow-forward"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-row>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <h2>Slide 3</h2>
+    </ion-slide>
+
+  </ion-slides>
+
+
 </ion-content>
