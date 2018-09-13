@@ -1,11 +1,25 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Tortas
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  Home works!
+  <div class="img-torta" margin-top>
+    <img src="assets/imgs/torta.png" alt="">
+  </div>
+  <div class="entry-info" text-center>
+    <h5>¿Quienes somos?</h5>
+    <h5>¿Por qué queremos hacerlo?</h5>
+    <h5>¿Cómo lo haremos?</h5>
+    <h5>¿Para qué lo haremos?</h5>
+    <h5>¿Qué ganamos con hacerlo?</h5>
+  </div>
+  <div class="help">
+    <button ion-button block color="primary" (click)="goToHelp()">
+      Quiero ayudar
+    </button>
+  </div>
 </ion-content>
