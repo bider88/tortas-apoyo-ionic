@@ -1,0 +1,7 @@
+{
+  "name": "tortas",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
