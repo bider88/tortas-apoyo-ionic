@@ -1,7 +1,6 @@
 page-help {
   ion-slide{
     display: block !important;
-    overflow-y: scroll !important;
     align-items: unset !important;
   }
 
@@ -14,5 +13,22 @@ page-help {
     ion-row {
       width: 100%;
     }
+  }
+
+  .resume{
+    font-size: .8em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    span {
+      margin-bottom: 10px;
+    }
+  }
+
+  .img-thanks {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
   }
 }

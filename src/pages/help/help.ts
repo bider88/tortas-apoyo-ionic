@@ -11,8 +11,10 @@ export class HelpPage {
   @ViewChild (Slides) slides: Slides;
 
   option: number = 0;
-  alias: string = '';
+  alias: string = 'Anónimo';
+  quantity: number = 1;
   aliasTemp = '';
+  optQuantity: string = 'select';
 
   constructor(
     public navCtrl: NavController,
@@ -25,6 +27,8 @@ export class HelpPage {
     // Bloquemos el slide al usuario
     this.slides.lockSwipes(true);
     this.slides.freeMode = false;
+    // console.log('optQuantity', this.optQuantity);
+    // console.log('quantity', this.quantity);
   }
 
   validOption() {
@@ -39,6 +43,7 @@ export class HelpPage {
         if ( this.option == 0 ) {
 
           this.next();
+          this.alias = 'Anónimo';
 
         } else {
           if ( this.option == 1 ) {
@@ -57,14 +62,59 @@ export class HelpPage {
     }
   }
 
+  insertAlias() {
+    this.alertCtrl.create({
+      title: 'Ingresar alias',
+      message: "Ingresar su alias. Si ya cuenta con uno, favor de ingresarlo para contabilizar a su cuenta el apoyo, de otra manera se creará un nuevo alias.",
+      inputs: [
+        {
+          name: 'alias',
+          placeholder: 'Alias'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancelar'
+        },
+        {
+          text: 'Aceptar',
+          handler: data => {
+            console.log('Saved clicked', data);
+            this.aliasTemp = data.alias;
+            this.setAlias();
+          }
+        }
+      ]
+    }).present();
+  }
+
   setAlias() {
     const aliasTemp = this.aliasTemp.trim();
     if ( aliasTemp.length > 0 ) {
-      this.alias = aliasTemp;
+      const alias = aliasTemp.split(' ');
+      this.alias = alias[0];
       return true;
     }
 
     return false;
+  }
+
+  onChange() {
+    const val = Number(this.quantity);
+
+    if ( isNaN ) {
+
+      if (val >= 999) {
+        this.quantity = 999;
+      } else if ( val <= 1) {
+        this.quantity = 1;
+      } else {
+        this.quantity = val;
+      }
+    } else {
+      this.quantity = 1;
+    }
+
   }
 
   next() {
@@ -85,6 +135,10 @@ export class HelpPage {
 
     this.slides.lockSwipes(true);
     this.slides.freeMode = false;
+  }
+
+  close() {
+    this.navCtrl.pop();
   }
 
   showAlert(subTitle: string = 'Aviso', message: string = '') {

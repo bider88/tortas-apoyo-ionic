@@ -35,15 +35,12 @@
       </ion-list>
 
       <ion-list *ngIf="option != 0">
-        <div *ngIf="option == 1">
-          <ion-item>
-            <ion-label>Alias</ion-label>
-            <ion-input [(ngModel)]="aliasTemp" type="text"></ion-input>
-          </ion-item>
-          <small class="s-note" margin-left>* Si ya cuentas con un alias, ingresalo.</small>
-        </div>
-        <button class="btn-facebook" ion-button color="facebook" block item-end icon-start *ngIf="option == 2">
-          <ion-icon name="logo-facebook"></ion-icon>&nbsp;
+        <button ion-button color="blue" block item-end icon-start *ngIf="option == 1" (click)="insertAlias()">
+          <ion-icon name="person"></ion-icon>
+          Ingresar alias
+        </button>
+        <button ion-button color="facebook" block item-end icon-start *ngIf="option == 2">
+          <ion-icon name="logo-facebook"></ion-icon>
           Facebook
         </button>
       </ion-list>
@@ -58,7 +55,67 @@
     </ion-slide>
 
     <ion-slide>
-      <h2>Slide 2</h2>
+
+      <div padding>
+        <ion-segment [(ngModel)]="optQuantity" color="secondary">
+          <ion-segment-button value="select">
+            Seleccionar cantidad
+          </ion-segment-button>
+          <ion-segment-button value="custom">
+            Ingresar cantidad
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+
+      <div [ngSwitch]="optQuantity">
+        <ion-list *ngSwitchCase="'select'">
+          <ion-item>
+
+            <ion-label>Cantidad</ion-label>
+            <ion-select [(ngModel)]="quantity" cancelText="Cancelar" okText="Aceptar">
+              <ion-option value="1">1</ion-option>
+              <ion-option value="2">2</ion-option>
+              <ion-option value="3">3</ion-option>
+              <ion-option value="4">4</ion-option>
+              <ion-option value="5">5</ion-option>
+              <ion-option value="6">6</ion-option>
+              <ion-option value="7">7</ion-option>
+              <ion-option value="8">8</ion-option>
+              <ion-option value="9">9</ion-option>
+              <ion-option value="10">10</ion-option>
+            </ion-select>
+
+          </ion-item>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'custom'">
+          <ion-item>
+            <ion-label stacked>Cantidad</ion-label>
+            <ion-input type="number" [(ngModel)]="quantity" (focusout)="onChange()" min="1" max="999"></ion-input>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <div padding class="resume">
+        <span class="type-help">
+          Tu apoyo se registrará como: <b>{{ alias }}</b>
+        </span>
+        <span class="type-help">
+          Por la cantidad de: <b>{{ quantity * 20 | currency }}</b>
+        </span>
+        <br>
+        <span>Formas de depósito:</span>
+        <br>
+        <span>Cuenta bancaria: <b>xxxx xxxx xxxx</b></span>
+        <span>Tarjeta bancaria: <b>xxxx xxxx xxxx xxxx</b></span>
+        <br>
+        <span>Lugares de depósito:</span>
+        <ul>
+          <li>OXXO</li>
+          <li>Banco</li>
+        </ul>
+      </div>
+
       <div class="btn-next">
         <ion-row>
           <ion-row>
@@ -69,7 +126,7 @@
               </button>
             </ion-col>
             <ion-col>
-              <button ion-button block (click)="validOption()" icon-right>
+              <button ion-button block (click)="next()" icon-right>
                 Continuar
                 <ion-icon name="arrow-forward"></ion-icon>
               </button>
@@ -80,7 +137,18 @@
     </ion-slide>
 
     <ion-slide>
-      <h2>Slide 3</h2>
+      <div class="img-thanks" margin-top>
+        <img src="assets/imgs/thanks.gif" alt="">
+      </div>
+      <div text-center>
+        <h2>Gracias por tu ayuda</h2>
+        <h4>Se verificara tu depósito</h4>
+      </div>
+      <div class="btn-next">
+        <button ion-button outline (click)="close()">
+          Cerrar
+        </button>
+      </div>
     </ion-slide>
 
   </ion-slides>

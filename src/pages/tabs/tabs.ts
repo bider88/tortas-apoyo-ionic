@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { ListPage } from '../list/list';
 import { InfoPage } from '../info/info';
@@ -18,11 +18,19 @@ import { InfoPage } from '../info/info';
 })
 export class TabsPage {
 
-  tabHome:any = HomePage;
-  tabList:any = ListPage;
-  tabInfo:any = InfoPage;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  tabs = [
+    {
+      icon: 'home',
+      page: HomePage
+    },
+    {
+      icon: 'list',
+      page: ListPage
+    },
+    {
+      icon: 'information-circle',
+      page: InfoPage
+    },
+  ]
 
 }
