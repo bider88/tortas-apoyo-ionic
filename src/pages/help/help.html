@@ -9,7 +9,7 @@
 
 <ion-content padding>
 
-  <ion-slides pager>
+  <ion-slides>
 
     <ion-slide>
 
@@ -46,10 +46,15 @@
       </ion-list>
 
       <div class="btn-next">
-        <button ion-button block (click)="validOption()" icon-right>
-          Continuar
-          <ion-icon name="arrow-forward"></ion-icon>
-        </button>
+        <ion-row>
+          <ion-col>
+
+            <button ion-button block (click)="validOption()" icon-right>
+              Continuar
+              <ion-icon name="arrow-forward"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
       </div>
 
     </ion-slide>
@@ -118,20 +123,18 @@
 
       <div class="btn-next">
         <ion-row>
-          <ion-row>
-            <ion-col>
-              <button color="secondary" ion-button block (click)="back()" icon-left>
-                <ion-icon name="arrow-back"></ion-icon>
-                Anterior
-              </button>
-            </ion-col>
-            <ion-col>
-              <button ion-button block (click)="next()" icon-right>
-                Continuar
-                <ion-icon name="arrow-forward"></ion-icon>
-              </button>
-            </ion-col>
-          </ion-row>
+          <ion-col>
+            <button color="secondary" ion-button block (click)="back()" icon-left>
+              <ion-icon name="arrow-back"></ion-icon>
+              Anterior
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button block (click)="next()" icon-right>
+              Continuar
+              <ion-icon name="arrow-forward"></ion-icon>
+            </button>
+          </ion-col>
         </ion-row>
       </div>
     </ion-slide>
