@@ -21,14 +21,17 @@ export class TabsPage {
   tabs = [
     {
       icon: 'home',
+      title: 'Inicio',
       page: HomePage
     },
     {
       icon: 'list',
+      title: 'Ayuda',
       page: ListPage
     },
     {
       icon: 'information-circle',
+      title: 'Boletín',
       page: InfoPage
     },
   ]

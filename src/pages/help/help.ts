@@ -15,6 +15,7 @@ export class HelpPage {
   quantity: number = 1;
   aliasTemp = '';
   optQuantity: string = 'select';
+  canExit: boolean = false;
 
   constructor(
     public navCtrl: NavController,
@@ -93,6 +94,7 @@ export class HelpPage {
     if ( aliasTemp.length > 0 ) {
       const alias = aliasTemp.split(' ');
       this.alias = alias[0];
+      this.next();
       return true;
     }
 
@@ -117,6 +119,31 @@ export class HelpPage {
 
   }
 
+  ionViewCanLeave( ) {
+
+    if ( !this.canExit ) {
+      return new Promise((resolve, reject) => {
+
+        this.alertCtrl.create({
+          subTitle: 'Descartar ayuda',
+          message: '¿Estás seguro de descartar la ayuda? ',
+          enableBackdropDismiss: false,
+          buttons: [
+            {
+              text: 'Cancelar',
+              handler: () => resolve(false)
+            },
+            {
+              text: 'Descartar',
+              handler: () => resolve(true)
+            }
+          ]
+        }).present();
+
+      })
+    }
+  }
+
   next() {
     this.slides.lockSwipes(false);
     this.slides.freeMode = true;
@@ -138,6 +165,7 @@ export class HelpPage {
   }
 
   close() {
+    this.canExit = true;
     this.navCtrl.pop();
   }
 

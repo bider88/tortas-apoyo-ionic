@@ -24,11 +24,36 @@ page-help {
     span {
       margin-bottom: 10px;
     }
+
+    .b-alias {
+      color: $green;
+    }
   }
 
   .img-thanks {
     text-align: center;
     width: 50%;
     margin: 0 auto;
+  }
+
+  ul {
+    list-style: none;
+    margin-top: 30px;
+
+    li {
+      margin-bottom: 5px;
+      color: #5e5e5e;
+
+      .icon-whatsapp {
+        color: green;
+      }
+      .icon-telegram {
+        color: #0088cc;
+        font-size: 1.5em;
+      }
+      .icon-email {
+        color: gray;
+      }
+    }
   }
 }

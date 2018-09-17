@@ -35,11 +35,11 @@
       </ion-list>
 
       <ion-list *ngIf="option != 0">
-        <button ion-button color="blue" block item-end icon-start *ngIf="option == 1" (click)="insertAlias()">
+        <button ion-button outline round block item-end icon-start *ngIf="option == 1" (click)="insertAlias()">
           <ion-icon name="person"></ion-icon>
           Ingresar alias
         </button>
-        <button ion-button color="facebook" block item-end icon-start *ngIf="option == 2">
+        <button ion-button color="facebook" round block item-end icon-start *ngIf="option == 2">
           <ion-icon name="logo-facebook"></ion-icon>
           Facebook
         </button>
@@ -49,7 +49,7 @@
         <ion-row>
           <ion-col>
 
-            <button ion-button block (click)="validOption()" icon-right>
+            <button ion-button block color="blue" round (click)="validOption()" icon-right>
               Continuar
               <ion-icon name="arrow-forward"></ion-icon>
             </button>
@@ -102,11 +102,11 @@
       </div>
 
       <div padding class="resume">
-        <span class="type-help">
-          Tu apoyo se registrará como: <b>{{ alias }}</b>
+        <span>
+          Tu apoyo se registrará como: <b class="b-alias">{{ alias }}</b>
         </span>
-        <span class="type-help">
-          Por la cantidad de: <b>{{ quantity * 20 | currency }}</b>
+        <span>
+          Por la cantidad de: <b class="b-alias">{{ quantity * 20 | currency }}</b>
         </span>
         <br>
         <span>Formas de depósito:</span>
@@ -124,13 +124,13 @@
       <div class="btn-next">
         <ion-row>
           <ion-col>
-            <button color="secondary" ion-button block (click)="back()" icon-left>
+            <button color="secondary" round ion-button block (click)="back()" icon-left>
               <ion-icon name="arrow-back"></ion-icon>
               Anterior
             </button>
           </ion-col>
           <ion-col>
-            <button ion-button block (click)="next()" icon-right>
+            <button ion-button block round color="blue" (click)="next()" icon-right>
               Continuar
               <ion-icon name="arrow-forward"></ion-icon>
             </button>
@@ -145,10 +145,25 @@
       </div>
       <div text-center>
         <h2>Gracias por tu ayuda</h2>
-        <h4>Se verificara tu depósito</h4>
+        <h4>Se verificará tu depósito</h4>
+        <p class="summary">Para sumar tu ayuda, mandanos la captura de depósito a:</p>
+        <ul>
+          <li>
+            <ion-icon class="icon-whatsapp" name="logo-whatsapp"></ion-icon>
+            Whatsapp
+          </li>
+          <li>
+            <ion-icon class="icon-telegram" name="ios-send"></ion-icon>
+            Telegram
+          </li>
+          <li>
+            <ion-icon class="icon-email" name="mail"></ion-icon>
+            Correo electrónico
+          </li>
+        </ul>
       </div>
       <div class="btn-next">
-        <button ion-button outline (click)="close()">
+        <button ion-button outline color="danger" round (click)="close()">
           Cerrar
         </button>
       </div>
