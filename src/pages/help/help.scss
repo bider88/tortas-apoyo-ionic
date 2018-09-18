@@ -6,6 +6,7 @@ page-help {
 
   .btn-next {
     position: absolute;
+    background-color: white;
     left: 0;
     width: 100%;
     bottom: 0px;
@@ -36,9 +37,10 @@ page-help {
     margin: 0 auto;
   }
 
-  ul {
+  .contact-thanks {
     list-style: none;
     margin-top: 30px;
+    padding-left: 0;
 
     li {
       margin-bottom: 5px;

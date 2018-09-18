@@ -15,7 +15,6 @@ export class HelpPage {
   quantity: number = 1;
   aliasTemp = '';
   optQuantity: string = 'select';
-  canExit: boolean = false;
 
   constructor(
     public navCtrl: NavController,
@@ -28,16 +27,10 @@ export class HelpPage {
     // Bloquemos el slide al usuario
     this.slides.lockSwipes(true);
     this.slides.freeMode = false;
-    // console.log('optQuantity', this.optQuantity);
-    // console.log('quantity', this.quantity);
   }
 
   validOption() {
     const indexPage = this.slides.getActiveIndex();
-
-    console.log(indexPage);
-
-
 
     switch ( indexPage ) {
       case 0:
@@ -120,8 +113,10 @@ export class HelpPage {
   }
 
   ionViewCanLeave( ) {
+    const indexPage = this.slides.getActiveIndex();
 
-    if ( !this.canExit ) {
+    if ( indexPage < 2 ) {
+
       return new Promise((resolve, reject) => {
 
         this.alertCtrl.create({
@@ -141,6 +136,7 @@ export class HelpPage {
         }).present();
 
       })
+
     }
   }
 
@@ -165,7 +161,6 @@ export class HelpPage {
   }
 
   close() {
-    this.canExit = true;
     this.navCtrl.pop();
   }
 

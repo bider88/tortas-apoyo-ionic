@@ -15,7 +15,7 @@
 
       <ion-list radio-group [(ngModel)]="option">
         <ion-list-header>
-          ¿Cómo quieres que quede registrado tu apoyo?
+          <span class="color-secondary">¿Cómo quieres que quede registrado tu apoyo?</span>
         </ion-list-header>
 
         <ion-item>
@@ -49,7 +49,7 @@
         <ion-row>
           <ion-col>
 
-            <button ion-button block color="blue" round (click)="validOption()" icon-right>
+            <button ion-button block round (click)="validOption()" icon-right>
               Continuar
               <ion-icon name="arrow-forward"></ion-icon>
             </button>
@@ -95,7 +95,7 @@
 
         <ion-list *ngSwitchCase="'custom'">
           <ion-item>
-            <ion-label stacked>Cantidad</ion-label>
+            <ion-label fixed>Cantidad</ion-label>
             <ion-input type="number" [(ngModel)]="quantity" (focusout)="onChange()" min="1" max="999"></ion-input>
           </ion-item>
         </ion-list>
@@ -130,7 +130,7 @@
             </button>
           </ion-col>
           <ion-col>
-            <button ion-button block round color="blue" (click)="next()" icon-right>
+            <button ion-button block round (click)="next()" icon-right>
               Continuar
               <ion-icon name="arrow-forward"></ion-icon>
             </button>
@@ -140,14 +140,14 @@
     </ion-slide>
 
     <ion-slide>
-      <div class="img-thanks" margin-top>
+      <div class="img-thanks">
         <img src="assets/imgs/thanks.gif" alt="">
       </div>
       <div text-center>
         <h2>Gracias por tu ayuda</h2>
         <h4>Se verificará tu depósito</h4>
-        <p class="summary">Para sumar tu ayuda, mandanos la captura de depósito a:</p>
-        <ul>
+        <p class="summary">Para sumar tu ayuda, mandanos la captura de depósito por los siguientes medios de contacto junto con tu número de folio:</p>
+        <ul class="contact-thanks">
           <li>
             <ion-icon class="icon-whatsapp" name="logo-whatsapp"></ion-icon>
             Whatsapp
