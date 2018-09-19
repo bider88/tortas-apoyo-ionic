@@ -39,14 +39,11 @@
           <ion-icon name="person"></ion-icon>
           Ingresar alias
         </button>
-        <button ion-button color="facebook" round block item-end icon-start *ngIf="option == 2">
+        <button ion-button color="facebook" round block item-end icon-start *ngIf="option == 2" (click)="loginWithFacebook()">
           <ion-icon name="logo-facebook"></ion-icon>
           Facebook
         </button>
       </ion-list>
-      <ion-row>
-        Nombre de facebook:
-      </ion-row>
 
       <div class="btn-next">
         <ion-row>

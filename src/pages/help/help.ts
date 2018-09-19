@@ -1,3 +1,4 @@
+import { FacebookProvider } from './../../providers/facebook/facebook';
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides, AlertController } from 'ionic-angular';
 
@@ -19,7 +20,8 @@ export class HelpPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private fbProvider: FacebookProvider
     ) {
   }
 
@@ -28,6 +30,8 @@ export class HelpPage {
     this.slides.lockSwipes(true);
     this.slides.freeMode = false;
   }
+
+  /* ********************* SLIDE ONE ********************* */
 
   validOption() {
     const indexPage = this.slides.getActiveIndex();
@@ -94,6 +98,18 @@ export class HelpPage {
     return false;
   }
 
+  loginWithFacebook() {
+    this.fbProvider.signInWithFacebook()
+    .then( ( res: any ) => {
+      console.log( JSON.stringify( res ) );
+      this.alias = res.user.displayName;
+      console.log(this.alias);
+      this.next();
+    })
+    .catch( err => console.log( JSON.stringify( err ) ) );
+  }
+
+  /* ********************* SLIDE TWO ********************* */
   onChange() {
     const val = Number(this.quantity);
 

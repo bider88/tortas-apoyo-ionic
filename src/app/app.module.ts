@@ -10,6 +10,9 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/da
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { firebaseConfig } from './../config/config';
 
+// Plugins
+import { Facebook } from '@ionic-native/facebook';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -50,7 +53,8 @@ import { FacebookProvider } from '../providers/facebook/facebook';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AngularFireDatabase,
     HelpProvider,
-    FacebookProvider
+    FacebookProvider,
+    Facebook
   ]
 })
 export class AppModule {}
