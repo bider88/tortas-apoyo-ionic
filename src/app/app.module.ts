@@ -16,6 +16,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { ListPage } from '../pages/list/list';
 import { InfoPage } from '../pages/info/info';
 import { HelpPage } from '../pages/help/help';
+import { HelpProvider } from '../providers/help/help';
+import { FacebookProvider } from '../providers/facebook/facebook';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { HelpPage } from '../pages/help/help';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AngularFireDatabase
+    AngularFireDatabase,
+    HelpProvider,
+    FacebookProvider
   ]
 })
 export class AppModule {}
