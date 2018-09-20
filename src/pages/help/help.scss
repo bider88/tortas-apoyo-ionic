@@ -1,19 +1,10 @@
 page-help {
   ion-slide{
-    display: block !important;
-    align-items: unset !important;
-  }
-
-  .btn-next {
-    position: absolute;
-    background-color: white;
-    left: 0;
     width: 100%;
-    bottom: 0px;
-
-    ion-row {
-      width: 100%;
-    }
+    height: 100%;
+    overflow: scroll;
+    display: block !important;
+    position: relative;
   }
 
   .resume{
@@ -59,3 +50,31 @@ page-help {
     }
   }
 }
+
+// .scroll-conten .btn-next {
+//   position: fixed;
+//   background-color: white;
+//   width: 100%;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   z-index: 999999;
+//   box-shadow: 0 0 5px 1px rgba(1, 1, 1, .2);
+
+//   ion-row {
+//     width: 100%;
+//   }
+// }
+
+// @media only screen and (max-height: 600px) {
+
+//   page-help {
+//     .resume {
+//       border: 2px solid blue;
+//       margin-bottom: 100px;
+//       overflow: scroll;
+//       font-size: .6em;
+//     }
+//   }
+
+// }

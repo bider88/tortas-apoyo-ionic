@@ -161,6 +161,7 @@ export class HelpPage {
     this.slides.freeMode = true;
 
     this.slides.slideNext();
+    window.scrollTo(0, 0);
 
     this.slides.lockSwipes(true);
     this.slides.freeMode = false;
@@ -171,6 +172,7 @@ export class HelpPage {
     this.slides.freeMode = true;
 
     this.slides.slidePrev();
+    window.scrollTo(0, 0);
 
     this.slides.lockSwipes(true);
     this.slides.freeMode = false;
